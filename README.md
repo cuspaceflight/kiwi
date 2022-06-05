@@ -6,7 +6,7 @@
 
 Are you fed up with trajectory propagators that try to do too much for you? But also don't want to write your own from scratch? Well, look no further. Kiwi is a minimalistic, barebones trajectory simulator, that can be used for any purpose from sounding rockets to satellite trajectories. 
 
-Kiwi includes both translational and rotational dynamics, making it a full 6DOF trajectory propagator.
+Kiwi includes both translational and rotational dynamics, making it a full 6 degree-of-freedom trajectory propagator.
 
 ## Installation
 Kiwi can be installed via pip, with the following command:
