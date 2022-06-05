@@ -13,6 +13,9 @@ class Simulation:
         bodies (list): Body object to add to the simulation.
         dt (float): Timestep.
         end_condition (callable): Function of the State. Must return True when the simulation needs to end.
+
+    Attributes:
+        states (list): List of State objects, containing the full state of the body at each timestep.
     """
     def __init__(self, body, dt, end_condition):
         self.body = body
@@ -20,7 +23,7 @@ class Simulation:
         self.end_condition = end_condition
         self.states = []
 
-    def fdot(self, fn, t):
+    def fdot(self, fn, t, debug = False):
         state = State.from_array(fn)
 
         # Linear motion
@@ -36,6 +39,9 @@ class Simulation:
                 extra_force = self.body.forces[i].value(state)
 
             force += np.array(extra_force)
+
+        if debug:
+            print(f"total force = {force}")
 
         if self.body.mass.input == "none":
             mass = self.body.mass.value
@@ -59,6 +65,9 @@ class Simulation:
                 extra_moment = self.body.moments[i].value(state)
 
             moment += np.array(extra_moment)
+
+        if debug:
+            print(f"total moment = {moment}")
 
         if self.body.mass.input == "none":
             A, B, C = self.body.moments_of_inertia.value
@@ -102,7 +111,11 @@ class Simulation:
             if debug:
                 print(self.body.state)
 
-            k1 = fdot(fn, t)
+            k1 = fdot(fn = fn, t = t, debug = debug)
+
+            if debug:
+                print(f"k1 = {k1} \n")
+
             k2 = fdot(fn + k1*dt/2, t + dt/2)
             k3 = fdot(fn + k2*dt/2, t + dt/2)
             k4 = fdot(fn + k3*dt, t + dt)
@@ -115,6 +128,10 @@ class Simulation:
             t = t + dt   
 
     def x(self):
+        """
+        Returns:
+            numpy.ndarray: x coordinates
+        """
         array = np.zeros(len(self.states))
 
         for i in range(len(self.states)):
@@ -123,6 +140,10 @@ class Simulation:
         return array
 
     def y(self):
+        """
+        Returns:
+            numpy.ndarray: y coordinates
+        """
         array = np.zeros(len(self.states))
 
         for i in range(len(self.states)):
@@ -131,10 +152,38 @@ class Simulation:
         return array
 
     def z(self):
+        """
+        Returns:
+            numpy.ndarray: z coordinates
+        """
         array = np.zeros(len(self.states))
 
         for i in range(len(self.states)):
            array[i] =  self.states[i].pos[2]
+
+        return array
+
+    def t(self):
+        """
+        Returns:
+            numpy.ndarray: Time values
+        """
+        array = np.zeros(len(self.states))
+
+        for i in range(len(self.states)):
+           array[i] =  self.states[i].time
+
+        return array
+
+    def V(self):
+        """
+        Returns:
+            numpy.ndarray: Velocity magnitudes
+        """
+        array = np.zeros(len(self.states))
+
+        for i in range(len(self.states)):
+           array[i] =  np.linalg.norm(self.states[i].vel)
 
         return array
 
