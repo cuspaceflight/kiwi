@@ -11,4 +11,7 @@ Kiwi can be installed via pip, with the following command:
 
 `pip install git+https://github.com/cuspaceflight/kiwi.git`
 
+## Templates
+- [Sounding Rocket](https://github.com/cuspaceflight/kiwi/blob/master/Sounding%20Rocket.ipynb)
+
 
