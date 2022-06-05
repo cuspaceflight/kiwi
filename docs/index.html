@@ -207,17 +207,18 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.State">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_vel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.State" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Class for storing the entire state of a body (6 degrees of freedom in total).
-:param time: Time.
-:type time: float
-:param pos: Position in the absolute reference frame, [x, y, z]. List or array of length 3.
-:type pos: list
-:param vel: Velocity in the absolute reference frame, [v_x, v_y, v_z]. List or array of length 3.
-:type vel: list
-:param ang_pos: Attitude in quaternion form, should be a length 4 list or array. Represents a conversion from the body reference frame to the absolute one. Can be useful to use scipy.spatial.transform.Rotation if you need help with this.
-:type ang_pos: list
-:param ang_vel: Angular velocity in the body’s reference frame, [w_A, w_B, w_C]. List or array of length 3.
-:type ang_vel: list</p>
+<p>Class for storing the entire state of a body (6 degrees of freedom in total).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>float</em>) – Time.</p></li>
+<li><p><strong>pos</strong> (<em>list</em>) – Position in the absolute reference frame, [x, y, z]. List or array of length 3.</p></li>
+<li><p><strong>vel</strong> (<em>list</em>) – Velocity in the absolute reference frame, [v_x, v_y, v_z]. List or array of length 3.</p></li>
+<li><p><strong>ang_pos</strong> (<em>list</em>) – Attitude in quaternion form, should be a length 4 list or array. Represents a conversion from the body reference frame to the absolute one. Can be useful to use scipy.spatial.transform.Rotation if you need help with this.</p></li>
+<li><p><strong>ang_vel</strong> (<em>list</em>) – Angular velocity in the body’s reference frame, [w_A, w_B, w_C]. List or array of length 3.</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cusfkiwi.main.State.time">
 <span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#cusfkiwi.main.State.time" title="Permalink to this definition"></a></dt>
@@ -338,7 +339,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Moment, [M_A, M_B, M_C], representing components about the body’s A, B and C axes (using a right hand rule). List or array of length 3. Should be in the body reference frame. Either a constant or a callable.</p></li>
+<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Moment, [M_A, M_B, M_C], representing components about the body’s A, B and C axes (using a right hand rule). List or array of length 3. Should be in the body reference frame (NOT the absolute one). Either a constant or a callable.</p></li>
 <li><p><strong>input</strong> (<em>str</em><em>, </em><em>optional</em>) – “none” for a constant, “time” to receive the time as an input, “state” to receive a State object as input. Defaults to “none”.</p></li>
 </ul>
 </dd>

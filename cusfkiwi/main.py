@@ -210,6 +210,7 @@ class Body:
 class State:
     """
     Class for storing the entire state of a body (6 degrees of freedom in total).
+
     Args:
         time (float): Time.
         pos (list): Position in the absolute reference frame, [x, y, z]. List or array of length 3.
@@ -299,7 +300,7 @@ class Moment:
     Class for representing the moments on a body. These must be given in the body's reference frame (NOT the absolute one).
 
     Args:
-        value (list or callable): Moment, [M_A, M_B, M_C], representing components about the body's A, B and C axes (using a right hand rule). List or array of length 3. Should be in the body reference frame. Either a constant or a callable.
+        value (list or callable): Moment, [M_A, M_B, M_C], representing components about the body's A, B and C axes (using a right hand rule). List or array of length 3. Should be in the body reference frame (NOT the absolute one). Either a constant or a callable.
         input (str, optional): "none" for a constant, "time" to receive the time as an input, "state" to receive a State object as input. Defaults to "none".
     """
     def __init__(self, value, input = "none"):
