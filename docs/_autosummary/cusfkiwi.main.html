@@ -76,60 +76,25 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Body" title="cusfkiwi.main.Body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Body</span></code></a>(init_state, mass, moments_of_inertia, …)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param init_state</dt>
-<dd class="field-odd"><p>Initial conditions as a State object.</p>
-</dd>
-</dl>
-</p></td>
+<td><p>Class for storing the inertial properties of a body as well as the forces and moments that are to be applied.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Force" title="cusfkiwi.main.Force"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Force</span></code></a>(value[, input])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param value</dt>
-<dd class="field-odd"><p>Force, as a 3-dimensional list or array. Should be in the absolute (not body) reference frame. Either a constant or a callable.</p>
-</dd>
-</dl>
-</p></td>
+<td><p>Class for representing the forces on a body.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Mass" title="cusfkiwi.main.Mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mass</span></code></a>(value[, input])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param value</dt>
-<dd class="field-odd"><p>Mass. Either a constant or a callable.</p>
-</dd>
-</dl>
-</p></td>
+<td><p>Class for representing the mass of a body.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Moment" title="cusfkiwi.main.Moment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Moment</span></code></a>(value[, input])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param value</dt>
-<dd class="field-odd"><p>Moment, as a 3-dimensional list or array. Should be in the body reference frame. Either a constant or a callable.</p>
-</dd>
-</dl>
-</p></td>
+<td><p>Class for representing the moments on a body.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.MomentsOfInertia" title="cusfkiwi.main.MomentsOfInertia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MomentsOfInertia</span></code></a>(value[, input])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param value</dt>
-<dd class="field-odd"><p>List of principal moments of inetia in the form [A, B, C]. Can be a constant, function of time, or function of the State.</p>
-</dd>
-</dl>
-</p></td>
+<td><p>Class for representing the principal moments of inertia of a body.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Simulation" title="cusfkiwi.main.Simulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Simulation</span></code></a>(body, dt, end_condition)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param bodies</dt>
-<dd class="field-odd"><p>Body object to add to the simulation.</p>
-</dd>
-</dl>
-</p></td>
+<td><p>Class for running simulations and storing the resulting data.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.State" title="cusfkiwi.main.State"><code class="xref py py-obj docutils literal notranslate"><span class="pre">State</span></code></a>(time, pos, vel, ang_pos, ang_vel)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">param time</dt>
-<dd class="field-odd"><p>Time.</p>
-</dd>
-</dl>
-</p></td>
+<td><p>Class for storing the entire state of a body (6 degrees of freedom in total).</p></td>
 </tr>
 </tbody>
 </table>

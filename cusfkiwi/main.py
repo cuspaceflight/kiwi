@@ -9,6 +9,8 @@ import numpy as np
 
 class Simulation:
     """
+    Class for running simulations and storing the resulting data.
+    
     Args:
         bodies (list): Body object to add to the simulation.
         dt (float): Timestep.
@@ -188,15 +190,17 @@ class Simulation:
         return array
 
 class Body:
+    """
+    Class for storing the inertial properties of a body as well as the forces and moments that are to be applied.
+
+    Args:
+        init_state (State): Initial conditions as a State object.
+        mass (Mass): Mass object to represent the body's mass.
+        moments_of_inertia (MomentsOfInertia): MomentsOfInertia object to represent the principal moments of inertia of the body.
+        forces (list): List of Forces objects, to represent the forces on the body.
+        moments (list): List of Moments objects, to represent the moments on the body.
+    """
     def __init__(self, init_state, mass, moments_of_inertia, forces, moments):
-        """
-        Args:
-            init_state (State): Initial conditions as a State object.
-            mass (Mass): Mass object to represent the body's mass.
-            moments_of_inertia (MomentsOfInertia): MomentsOfInertia object to represent the principal moments of inertia of the body.
-            forces (list): List of Forces objects, to represent the forces on the body.
-            moments (list): List of Moments objects, to represent the moments on the body.
-        """
         self.state = init_state
         self.mass = mass
         self.moments_of_inertia = moments_of_inertia
@@ -205,19 +209,20 @@ class Body:
 
 class State:
     """
+    Class for storing the entire state of a body (6 degrees of freedom in total).
     Args:
         time (float): Time.
-        pos (list): Position. List or array of length 3.
-        vel (list): Velocity. List or array of length 3.
-        ang_pos (list): Angular position in quaternion form, should be a length 4 list or array.
-        ang_vel (list): Angular velocity, list or array of length 3.
+        pos (list): Position in the absolute reference frame, [x, y, z]. List or array of length 3.
+        vel (list): Velocity in the absolute reference frame, [v_x, v_y, v_z]. List or array of length 3.
+        ang_pos (list): Attitude in quaternion form, should be a length 4 list or array. Represents a conversion from the body reference frame to the absolute one. Can be useful to use scipy.spatial.transform.Rotation if you need help with this.
+        ang_vel (list): Angular velocity in the body's reference frame, [w_A, w_B, w_C]. List or array of length 3.
 
     Attributes:
         time (float): Time.
-        pos (list): Position. 
-        vel (list): Velocity. 
-        ang_pos (list): Angular position in quaternion form.
-        ang_vel (list): Angular velocity.
+        pos (list): Position in the absolute reference frame, [x, y, z].
+        vel (list): Velocity in the absolute reference frame, [v_x, v_y, v_z].
+        ang_pos (list): Attitude in quaternion form, should be a length 4 list or array. Represents a conversion from the body reference frame to the absolute one.
+        ang_vel (list): Angular velocity in the body's reference frame, [w_A, w_B, w_C].
     """
 
     def __init__(self, time, pos, vel, ang_pos, ang_vel):
@@ -251,6 +256,8 @@ class State:
 
 class Mass:
     """
+    Class for representing the mass of a body.
+
     Args:
         value (float or callable): Mass. Either a constant or a callable.
         input (str, optional): "none" for a constant, "time" to receive the time as an input, "state" to receive a State object as input. Defaults to "none".
@@ -261,6 +268,8 @@ class Mass:
 
 class MomentsOfInertia:
     """
+    Class for representing the principal moments of inertia of a body. Note that these principal moments of inertia should be given in the body's reference frame. This makes them constant for a constant mass and geometry system.
+
     Args:
         value (list or callable): List of principal moments of inetia in the form [A, B, C]. Can be a constant, function of time, or function of the State.
         input (str, optional): "none" for a constant, "time" to receive the time as an input, "state" to receive a State object as input. Defaults to "none".
@@ -271,8 +280,10 @@ class MomentsOfInertia:
 
 class Force:
     """
+    Class for representing the forces on a body. These must be given in the absolute reference frame (NOT the body reference frame).
+
     Args:
-        value (list or callable): Force, as a 3-dimensional list or array. Should be in the absolute (not body) reference frame. Either a constant or a callable.
+        value (list or callable): Force, [F_x, F_y, F_z]. List or array of length 3. Should be in the absolute (NOT body) reference frame. Either a constant or a callable.
         input (str, optional): "none" for a constant, "time" to receive the time as an input, "state" to receive a State object as input. Defaults to "none".
     """
     def __init__(self, value, input = "none"):
@@ -285,8 +296,10 @@ class Force:
 
 class Moment:
     """
+    Class for representing the moments on a body. These must be given in the body's reference frame (NOT the absolute one).
+
     Args:
-        value (list or callable): Moment, as a 3-dimensional list or array. Should be in the body reference frame. Either a constant or a callable.
+        value (list or callable): Moment, [M_A, M_B, M_C], representing components about the body's A, B and C axes (using a right hand rule). List or array of length 3. Should be in the body reference frame. Either a constant or a callable.
         input (str, optional): "none" for a constant, "time" to receive the time as an input, "state" to receive a State object as input. Defaults to "none".
     """
     def __init__(self, value, input = "none"):

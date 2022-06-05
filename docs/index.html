@@ -87,6 +87,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.Simulation">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_condition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Simulation" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for running simulations and storing the resulting data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -188,6 +189,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.Body">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moments_of_inertia</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Body" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for storing the inertial properties of a body as well as the forces and moments that are to be applied.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -205,17 +207,17 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.State">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_vel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.State" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>time</strong> (<em>float</em>) – Time.</p></li>
-<li><p><strong>pos</strong> (<em>list</em>) – Position. List or array of length 3.</p></li>
-<li><p><strong>vel</strong> (<em>list</em>) – Velocity. List or array of length 3.</p></li>
-<li><p><strong>ang_pos</strong> (<em>list</em>) – Angular position in quaternion form, should be a length 4 list or array.</p></li>
-<li><p><strong>ang_vel</strong> (<em>list</em>) – Angular velocity, list or array of length 3.</p></li>
-</ul>
-</dd>
-</dl>
+<p>Class for storing the entire state of a body (6 degrees of freedom in total).
+:param time: Time.
+:type time: float
+:param pos: Position in the absolute reference frame, [x, y, z]. List or array of length 3.
+:type pos: list
+:param vel: Velocity in the absolute reference frame, [v_x, v_y, v_z]. List or array of length 3.
+:type vel: list
+:param ang_pos: Attitude in quaternion form, should be a length 4 list or array. Represents a conversion from the body reference frame to the absolute one. Can be useful to use scipy.spatial.transform.Rotation if you need help with this.
+:type ang_pos: list
+:param ang_vel: Angular velocity in the body’s reference frame, [w_A, w_B, w_C]. List or array of length 3.
+:type ang_vel: list</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cusfkiwi.main.State.time">
 <span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#cusfkiwi.main.State.time" title="Permalink to this definition"></a></dt>
@@ -230,7 +232,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cusfkiwi.main.State.pos">
 <span class="sig-name descname"><span class="pre">pos</span></span><a class="headerlink" href="#cusfkiwi.main.State.pos" title="Permalink to this definition"></a></dt>
-<dd><p>Position.</p>
+<dd><p>Position in the absolute reference frame, [x, y, z].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
@@ -241,7 +243,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cusfkiwi.main.State.vel">
 <span class="sig-name descname"><span class="pre">vel</span></span><a class="headerlink" href="#cusfkiwi.main.State.vel" title="Permalink to this definition"></a></dt>
-<dd><p>Velocity.</p>
+<dd><p>Velocity in the absolute reference frame, [v_x, v_y, v_z].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
@@ -252,7 +254,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cusfkiwi.main.State.ang_pos">
 <span class="sig-name descname"><span class="pre">ang_pos</span></span><a class="headerlink" href="#cusfkiwi.main.State.ang_pos" title="Permalink to this definition"></a></dt>
-<dd><p>Angular position in quaternion form.</p>
+<dd><p>Attitude in quaternion form, should be a length 4 list or array. Represents a conversion from the body reference frame to the absolute one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
@@ -263,7 +265,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dl class="py attribute">
 <dt class="sig sig-object py" id="cusfkiwi.main.State.ang_vel">
 <span class="sig-name descname"><span class="pre">ang_vel</span></span><a class="headerlink" href="#cusfkiwi.main.State.ang_vel" title="Permalink to this definition"></a></dt>
-<dd><p>Angular velocity.</p>
+<dd><p>Angular velocity in the body’s reference frame, [w_A, w_B, w_C].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>list</p>
@@ -287,6 +289,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.Mass">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Mass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Mass" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for representing the mass of a body.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -301,6 +304,7 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.MomentsOfInertia">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">MomentsOfInertia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.MomentsOfInertia" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for representing the principal moments of inertia of a body. Note that these principal moments of inertia should be given in the body’s reference frame. This makes them constant for a constant mass and geometry system.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -315,10 +319,11 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.Force">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Force" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for representing the forces on a body. These must be given in the absolute reference frame (NOT the body reference frame).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Force, as a 3-dimensional list or array. Should be in the absolute (not body) reference frame. Either a constant or a callable.</p></li>
+<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Force, [F_x, F_y, F_z]. List or array of length 3. Should be in the absolute (NOT body) reference frame. Either a constant or a callable.</p></li>
 <li><p><strong>input</strong> (<em>str</em><em>, </em><em>optional</em>) – “none” for a constant, “time” to receive the time as an input, “state” to receive a State object as input. Defaults to “none”.</p></li>
 </ul>
 </dd>
@@ -329,10 +334,11 @@ Use the ‘home’ buttons (with the small image of a house) to navigate back to
 <dt class="sig sig-object py" id="cusfkiwi.main.Moment">
 <em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Moment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Moment" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for representing the moments on a body. These must be given in the body’s reference frame (NOT the absolute one).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Moment, as a 3-dimensional list or array. Should be in the body reference frame. Either a constant or a callable.</p></li>
+<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Moment, [M_A, M_B, M_C], representing components about the body’s A, B and C axes (using a right hand rule). List or array of length 3. Should be in the body reference frame. Either a constant or a callable.</p></li>
 <li><p><strong>input</strong> (<em>str</em><em>, </em><em>optional</em>) – “none” for a constant, “time” to receive the time as an input, “state” to receive a State object as input. Defaults to “none”.</p></li>
 </ul>
 </dd>
