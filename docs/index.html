@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Kiwi’s documentation! &mdash; Bamboo 0.2 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="cusfkiwi.main" href="_autosummary/cusfkiwi.main.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Bamboo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="_autosummary/cusfkiwi.main.html">cusfkiwi.main</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Bamboo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Welcome to Kiwi’s documentation!</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="welcome-to-kiwi-s-documentation">
+<h1>Welcome to Kiwi’s documentation!<a class="headerlink" href="#welcome-to-kiwi-s-documentation" title="Permalink to this headline"></a></h1>
+<p>Use the sidebar (on the left) to find lists of all the available classes and functions, for each submodule.
+Use the ‘home’ buttons (with the small image of a house) to navigate back to this main page.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-cusfkiwi.main" title="cusfkiwi.main"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cusfkiwi.main</span></code></a></p></td>
+<td><p>References</p></td>
+</tr>
+</tbody>
+</table>
+<section id="cusfkiwi-main-module">
+<h2>cusfkiwi.main module<a class="headerlink" href="#cusfkiwi-main-module" title="Permalink to this headline"></a></h2>
+<span class="target" id="module-cusfkiwi.main"></span><p>References</p>
+<p>[1] - A.M.P. Tombs, The Extended Mars Lander, Exercise 1: Euler’s equations and quaternions, September 18, 2013</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="cusfkiwi.main.Simulation">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Simulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">body</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_condition</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Simulation" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bodies</strong> (<em>list</em>) – Body object to add to the simulation.</p></li>
+<li><p><strong>dt</strong> (<em>float</em>) – Timestep.</p></li>
+<li><p><strong>end_condition</strong> (<em>callable</em>) – Function of the State. Must return True when the simulation needs to end.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="cusfkiwi.main.Simulation.fdot">
+<span class="sig-name descname"><span class="pre">fdot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Simulation.fdot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cusfkiwi.main.Simulation.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">debug</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Simulation.run" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cusfkiwi.main.Simulation.x">
+<span class="sig-name descname"><span class="pre">x</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Simulation.x" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cusfkiwi.main.Simulation.y">
+<span class="sig-name descname"><span class="pre">y</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Simulation.y" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cusfkiwi.main.Simulation.z">
+<span class="sig-name descname"><span class="pre">z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Simulation.z" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cusfkiwi.main.Body">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Body</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moments_of_inertia</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forces</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moments</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Body" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>init_state</strong> (<a class="reference internal" href="#cusfkiwi.main.State" title="cusfkiwi.main.State"><em>State</em></a>) – Initial conditions as a State object.</p></li>
+<li><p><strong>mass</strong> (<a class="reference internal" href="#cusfkiwi.main.Mass" title="cusfkiwi.main.Mass"><em>Mass</em></a>) – Mass object to represent the body’s mass.</p></li>
+<li><p><strong>moments_of_inertia</strong> (<a class="reference internal" href="#cusfkiwi.main.MomentsOfInertia" title="cusfkiwi.main.MomentsOfInertia"><em>MomentsOfInertia</em></a>) – MomentsOfInertia object to represent the principal moments of inertia of the body.</p></li>
+<li><p><strong>forces</strong> (<em>list</em>) – List of Forces objects, to represent the forces on the body.</p></li>
+<li><p><strong>moments</strong> (<em>list</em>) – List of Moments objects, to represent the moments on the body.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cusfkiwi.main.State">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_pos</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_vel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.State" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> (<em>float</em>) – Time.</p></li>
+<li><p><strong>pos</strong> (<em>list</em>) – Position. List or array of length 3.</p></li>
+<li><p><strong>vel</strong> (<em>list</em>) – Velocity. List or array of length 3.</p></li>
+<li><p><strong>ang_pos</strong> (<em>list</em>) – Angular position in quaternion form, should be a length 4 list or array.</p></li>
+<li><p><strong>ang_vel</strong> (<em>list</em>) – Angular velocity, list or array of length 3.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cusfkiwi.main.State.time">
+<span class="sig-name descname"><span class="pre">time</span></span><a class="headerlink" href="#cusfkiwi.main.State.time" title="Permalink to this definition"></a></dt>
+<dd><p>Time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cusfkiwi.main.State.pos">
+<span class="sig-name descname"><span class="pre">pos</span></span><a class="headerlink" href="#cusfkiwi.main.State.pos" title="Permalink to this definition"></a></dt>
+<dd><p>Position.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cusfkiwi.main.State.vel">
+<span class="sig-name descname"><span class="pre">vel</span></span><a class="headerlink" href="#cusfkiwi.main.State.vel" title="Permalink to this definition"></a></dt>
+<dd><p>Velocity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cusfkiwi.main.State.ang_pos">
+<span class="sig-name descname"><span class="pre">ang_pos</span></span><a class="headerlink" href="#cusfkiwi.main.State.ang_pos" title="Permalink to this definition"></a></dt>
+<dd><p>Angular position in quaternion form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="cusfkiwi.main.State.ang_vel">
+<span class="sig-name descname"><span class="pre">ang_vel</span></span><a class="headerlink" href="#cusfkiwi.main.State.ang_vel" title="Permalink to this definition"></a></dt>
+<dd><p>Angular velocity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cusfkiwi.main.State.to_array">
+<span class="sig-name descname"><span class="pre">to_array</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.State.to_array" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="cusfkiwi.main.State.from_array">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">from_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.State.from_array" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cusfkiwi.main.Mass">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Mass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Mass" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>float</em><em> or </em><em>callable</em>) – Mass. Either a constant or a callable.</p></li>
+<li><p><strong>input</strong> (<em>str</em><em>, </em><em>optional</em>) – “none” for a constant, “time” to receive the time as an input, “state” to receive a State object as input. Defaults to “none”.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cusfkiwi.main.MomentsOfInertia">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">MomentsOfInertia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.MomentsOfInertia" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – List of principal moments of inetia in the form [A, B, C]. Can be a constant, function of time, or function of the State.</p></li>
+<li><p><strong>input</strong> (<em>str</em><em>, </em><em>optional</em>) – “none” for a constant, “time” to receive the time as an input, “state” to receive a State object as input. Defaults to “none”.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cusfkiwi.main.Force">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Force" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Force, as a 3-dimensional list or array. Should be in the absolute (not body) reference frame. Either a constant or a callable.</p></li>
+<li><p><strong>input</strong> (<em>str</em><em>, </em><em>optional</em>) – “none” for a constant, “time” to receive the time as an input, “state” to receive a State object as input. Defaults to “none”.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="cusfkiwi.main.Moment">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">cusfkiwi.main.</span></span><span class="sig-name descname"><span class="pre">Moment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#cusfkiwi.main.Moment" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>value</strong> (<em>list</em><em> or </em><em>callable</em>) – Moment, as a 3-dimensional list or array. Should be in the body reference frame. Either a constant or a callable.</p></li>
+<li><p><strong>input</strong> (<em>str</em><em>, </em><em>optional</em>) – “none” for a constant, “time” to receive the time as an input, “state” to receive a State object as input. Defaults to “none”.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="_autosummary/cusfkiwi.main.html" class="btn btn-neutral float-right" title="cusfkiwi.main" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cambridge University Spaceflight.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

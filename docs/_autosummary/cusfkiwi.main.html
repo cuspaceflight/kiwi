@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cusfkiwi.main &mdash; Bamboo 0.2 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Welcome to Kiwi’s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Bamboo
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">cusfkiwi.main</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Bamboo</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>cusfkiwi.main</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/cusfkiwi.main.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-cusfkiwi.main">
+<span id="cusfkiwi-main"></span><h1>cusfkiwi.main<a class="headerlink" href="#module-cusfkiwi.main" title="Permalink to this headline"></a></h1>
+<p>References</p>
+<p>[1] - A.M.P. Tombs, The Extended Mars Lander, Exercise 1: Euler’s equations and quaternions, September 18, 2013</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Body" title="cusfkiwi.main.Body"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Body</span></code></a>(init_state, mass, moments_of_inertia, …)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param init_state</dt>
+<dd class="field-odd"><p>Initial conditions as a State object.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Force" title="cusfkiwi.main.Force"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Force</span></code></a>(value[, input])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param value</dt>
+<dd class="field-odd"><p>Force, as a 3-dimensional list or array. Should be in the absolute (not body) reference frame. Either a constant or a callable.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Mass" title="cusfkiwi.main.Mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mass</span></code></a>(value[, input])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param value</dt>
+<dd class="field-odd"><p>Mass. Either a constant or a callable.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Moment" title="cusfkiwi.main.Moment"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Moment</span></code></a>(value[, input])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param value</dt>
+<dd class="field-odd"><p>Moment, as a 3-dimensional list or array. Should be in the body reference frame. Either a constant or a callable.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.MomentsOfInertia" title="cusfkiwi.main.MomentsOfInertia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MomentsOfInertia</span></code></a>(value[, input])</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param value</dt>
+<dd class="field-odd"><p>List of principal moments of inetia in the form [A, B, C]. Can be a constant, function of time, or function of the State.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.Simulation" title="cusfkiwi.main.Simulation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Simulation</span></code></a>(body, dt, end_condition)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param bodies</dt>
+<dd class="field-odd"><p>Body object to add to the simulation.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../index.html#cusfkiwi.main.State" title="cusfkiwi.main.State"><code class="xref py py-obj docutils literal notranslate"><span class="pre">State</span></code></a>(time, pos, vel, ang_pos, ang_vel)</p></td>
+<td><p><dl class="field-list simple">
+<dt class="field-odd">param time</dt>
+<dd class="field-odd"><p>Time.</p>
+</dd>
+</dl>
+</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to Kiwi’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Cambridge University Spaceflight.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
