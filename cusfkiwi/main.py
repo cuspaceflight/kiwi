@@ -4,7 +4,6 @@
 
 """
 
-from multiprocessing.sharedctypes import Value
 import numpy as np
 
 class Simulation:
