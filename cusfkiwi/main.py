@@ -70,11 +70,11 @@ class Simulation:
         if debug:
             print(f"total moment = {moment}")
 
-        if self.body.mass.input == "none":
+        if self.body.moments_of_inertia.input == "none":
             A, B, C = self.body.moments_of_inertia.value
-        elif self.body.mass.input == "time":
+        elif self.body.moments_of_inertia.input == "time":
             A, B, C = self.body.moments_of_inertia.value(t)
-        elif self.body.mass.input == "state":
+        elif self.body.moments_of_inertia.input == "state":
             A, B, C = self.body.moments_of_inertia.value(state)
 
         I = np.array([[A, 0.0, 0.0], [0.0, B, 0.0], [0.0, 0.0, C]])
